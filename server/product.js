@@ -95,7 +95,7 @@ const getAllProjects = async () => {
 
 const addProject = async (name, description, skillset, noofmembers, isactive) => {
     try {
-        console.log(',,,,,,', Date.now(), '.....', moment(Date.now()).format('DD-MM-YYYY hh:mm A'))
+        console.log(',,,,,,', Date.now(), '...', new Date().getUTCDate(), '.....', moment(Date.now()).format('DD-MM-YYYY hh:mm A'))
         const project = await new ProjectModel({
             name: name,
             description: description,
