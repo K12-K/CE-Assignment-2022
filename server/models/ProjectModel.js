@@ -34,7 +34,7 @@ const projectSchema = new mongoose.Schema({
     },
     createddate: {
         type: String,
-        default: moment(Date.now()).format('DD-MM-YYYY hh:mm A')
+        default: moment().format('DD-MM-YYYY hh:mm A')
     }
 })
 

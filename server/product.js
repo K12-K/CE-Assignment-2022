@@ -95,13 +95,14 @@ const getAllProjects = async () => {
 
 const addProject = async (name, description, skillset, noofmembers, isactive) => {
     try {
+        console.log(',,,,,,', Date.now(), '.....', moment(Date.now()).format('DD-MM-YYYY hh:mm A'))
         const project = await new ProjectModel({
             name: name,
             description: description,
             skillset: skillset,
             noofmembers: noofmembers,
             isactive: isactive,
-            createddate: moment(Date.now()).format('DD-MM-YYYY hh:mm A')
+            createddate: moment().format('DD-MM-YYYY hh:mm A')
         }).save().catch((error) => {
             if (error.name === 'MongoServerError' && error.code === 11000) {
                 throw new Error('Project already exists!!!')
