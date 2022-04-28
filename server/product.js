@@ -1,5 +1,6 @@
 const express = require('express')
 const { ProjectModel } = require('./models/ProjectModel')
+const moment = require("moment")
 const router = express.Router()
 
 router.get('/all', async (req, res) => {
@@ -99,7 +100,8 @@ const addProject = async (name, description, skillset, noofmembers, isactive) =>
             description: description,
             skillset: skillset,
             noofmembers: noofmembers,
-            isactive: isactive
+            isactive: isactive,
+            createddate: moment(Date.now()).format('DD-MM-YYYY hh:mm A')
         }).save().catch((error) => {
             if (error.name === 'MongoServerError' && error.code === 11000) {
                 throw new Error('Project already exists!!!')
